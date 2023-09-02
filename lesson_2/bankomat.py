@@ -23,7 +23,8 @@ def addition():
 def removal():
     pass
 def show():
-    pass
+    print(f'На вашем счете: {amount} у.е.')
+    input('Нажмите любую кнопку')
 def menu():
     os.system("cls")
     menu = ('Добро пожаловать в программу "Банкомат"\n\n'
@@ -44,10 +45,12 @@ def menu():
             if answer == '1':
                 os.system("cls")
                 addition()
+                show()
                 print(menu)
             if answer == '2':
                 os.system("cls")
                 removal()
+                show()
                 print(menu)
             if answer == '3':
                 os.system("cls")
