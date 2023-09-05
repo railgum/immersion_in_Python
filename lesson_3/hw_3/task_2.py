@@ -20,8 +20,11 @@ big_string = ('Размеры питонов колеблются от 1,5 (ко
 
 list_words = big_string.split()
 list_dict = dict((i, list_words.count(i)) for i in list_words)
+sorted_list = sorted((value, key)
+                     for (key, value) in list_dict.items())
 
+sorted_list.reverse()
 print(len(list_words))
-print(list_dict)
-
+for i in range(11):
+    print(sorted_list[i])
 
