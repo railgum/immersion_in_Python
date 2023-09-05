@@ -8,3 +8,17 @@
 #   у кого данная вещь отсутствует
 # ✔ Для решения используйте операции с множествами. Код должен расширяться
 #   на любое большее количество друзей.
+
+hike = {
+    'misha': ('tent', 'pot', 'matches', 'axe', 'rope', 'canned food'),
+    'roma': ('knife', 'salt', 'rope', 'sweater', 'canned food', 'tent'),
+    'sasha': ('rice', 'noodles', 'matches', 'salt', 'tent'),
+}
+
+things = set()
+for key, values in hike.items():
+    for i in values:
+        things.add(i)
+
+
+print(f'Взяли следующие вещи: {things}')
