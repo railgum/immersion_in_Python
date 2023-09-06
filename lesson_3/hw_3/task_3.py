@@ -1,9 +1,13 @@
+import random
+
 # Создайте словарь со списком вещей для похода в качестве ключа и их массой в
 # качестве значения. Определите какие вещи влезут в рюкзак, передав его
 # максимальную грузоподъёмность. Достаточно вернуть один допустимый вариант.
 # *Верните все возможные варианты комплектации рюкзака.
 
+
 MAX_TONNAGE = 30
+MIN_TONNAGE = 25
 things_for_hike = {
     'marquee': 15,
     'pot': 1,
@@ -20,9 +24,19 @@ things_for_hike = {
     'battery': 0.5,
 }
 
-possible_set = []
+possible_dict = {}
+while True:
+    rnd_key = random.choice(list(things_for_hike))
+    possible_dict.setdefault(rnd_key, things_for_hike[rnd_key])
+    if sum(possible_dict.values()) > MAX_TONNAGE:
+        del possible_dict[rnd_key]
+    if MAX_TONNAGE > sum(possible_dict.values()) > MIN_TONNAGE:
+        break
 
-for key, value in things_for_hike.items():
-    while sum(possible_set(key)) < MAX_TONNAGE:
+
+print('Возможный вариант:')
+for key in possible_dict.keys():
+    print(key)
+print(f'Общий вес: {sum(possible_dict.values())}')
 
 
