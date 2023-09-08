@@ -1,13 +1,5 @@
 # Напишите функцию для транспонирования матрицы
 
-def print_matrix(matrix):
-    for i in matrix:
-        print(' '.join(list(map(str, i))))
-
-
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-print_matrix(matrix)
-
 
 def trans_matrix(matrix):
     result = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
@@ -17,5 +9,8 @@ def trans_matrix(matrix):
     return result
 
 
-print('Транспонированная')
-print_matrix(trans_matrix(matrix))
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+print(matrix)
+print(trans_matrix(matrix))
+
