@@ -7,8 +7,8 @@ import random
 
 
 def my_sort(some_lst: list):
-    for i in range(len(some_lst)-1):
-        for j in range(len(some_lst)-i-1):
+    for i in range(1, len(some_lst)-1):
+        for j in range(len(some_lst)-i):
             if some_lst[j] > some_lst[j+1]:
                 some_lst[j], some_lst[j+1] = some_lst[j+1], some_lst[j]
 
