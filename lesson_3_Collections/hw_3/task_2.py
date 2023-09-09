@@ -24,7 +24,6 @@ sorted_list = sorted((value, key)
                      for (key, value) in list_dict.items())
 
 sorted_list.reverse()
-print(len(list_words))
 for i in range(11):
     print(sorted_list[i])
 

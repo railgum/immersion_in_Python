@@ -4,12 +4,9 @@ import random
 # В результирующем списке не должно быть дубликатов.
 
 print(nums := [random.randint(0, 10) for _ in range(0, 20)])
-origin_nums = nums.copy()
-double_nums = set()
-for i in nums:
+double_nums = []
+for i in set(nums):
     if nums.count(i) >= 2:
-        double_nums.add(i)
-        origin_nums.remove(i)
+        double_nums.append(i)
 
-# print(origin_nums)
 print(double_nums)
