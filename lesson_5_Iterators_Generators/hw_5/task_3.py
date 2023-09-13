@@ -8,8 +8,10 @@
 name = ['Виктор', 'Маргaрита', 'Анатолий']
 stavka = [10000, 20000, 15000]
 prem = ['10.25%', '7.4%', '14.2%']
-def my_func(name: str, stavka: int, prem: str):
-    yield {name[i]: stavka[i] * float(prem[i][:-1]) / 100 for i in range(len(
-        name))}
-
-print(*(my_func(name, stavka, prem)))
+# Это я для себя:
+# def my_func(name: str, stavka: int, prem: str):
+#     yield {name[i]: stavka[i] * float(prem[i][:-1]) / 100 for i in range(len(
+#         name))}
+print(
+    *({name[i]: stavka[i] * float(prem[i][:-1])/100} for i in range(len(name)))
+)
