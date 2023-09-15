@@ -14,6 +14,6 @@ def func(*args):
     return dict_result
 
 
-print(func(5, 'text', 6, [1,2,3], (1,2,3)))
+# print(func(5, 'text', 6, [1,2,3], (1,2,3)))
 
 
