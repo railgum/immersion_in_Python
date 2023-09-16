@@ -1,5 +1,5 @@
 import sys
-from .task_2 import guess_num
+from .guess_num import guess_num
 if __name__ == '__main__':
     options = list(map(int, sys.argv[1:]))
     low_limit = 1

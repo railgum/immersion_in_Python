@@ -11,13 +11,13 @@ from random import randint as RI
 def guess_num(a=0, b=10, c=5):
     num = RI(a, b + 1)
     cnt = 0
-    while c > cnt:
-        answer = int(input(f'Введите число от {a} до {b}: '))
+    while c > 0:
+        answer = int(input(f'У вас {c-cnt} попыток. Введите число от {a} до {b}: '))
         if answer < a or answer > b:
             print('Введенное число выходит за пределы диапазона')
             continue
         if answer == num:
-            print(f'Вы угадали за {cnt} раз')
+            print(f'Вы угадали за {cnt+1} попыток')
             break
         elif answer < num:
             print(f'Число меньше загаданного')
@@ -26,3 +26,4 @@ def guess_num(a=0, b=10, c=5):
         cnt += 1
     else:
         print(f'Вы не угадали число за {cnt} попыток. Правильный ответ: {num} ')
+# guess_num()
