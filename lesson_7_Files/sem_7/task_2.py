@@ -5,26 +5,18 @@
 import random
 
 
-# def get_names(count):
-#     letters_1 = 'аоуиею'
-#     letters_2 = 'кдлфмр'
-#     names = [random.choice(i) for i in zip(letters_1, letters_2)]
-#     with open('names.txt', 'a', encoding='utf-8') as n:
-#         for _ in range(count):
-#             n.writelines(''.join(names).capitalize())
-#
-#
-# get_names(5)
 
 import random as rnd
 import string
 
 letter = string.ascii_lowercase
 vowels = 'aeiouy'
+MIN_NAME = 4
+MAX_NAME = 7
 
 
 def generate_name():
-    size = rnd.randint(4, 7)
+    size = rnd.randint(MIN_NAME, MAX_NAME)
     name = rnd.sample(letter, size - 1)
     name.append(rnd.choice(vowels))
     rnd.shuffle(name)
