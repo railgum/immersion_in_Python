@@ -26,7 +26,7 @@ def generate_name():
 
 def write_names_to_file(filename: str, count: int):
     names = []
-    with open(filename, 'a+', encoding='UTF-8') as file:
+    with open(filename, 'w', encoding='UTF-8') as file:
         for _ in range(count):
             names.append(generate_name())
         file.write('\n'.join(names))
