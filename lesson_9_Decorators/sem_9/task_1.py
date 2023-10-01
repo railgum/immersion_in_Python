@@ -32,4 +32,3 @@ def outer():
 
 example = outer()
 example()
-# print(globals())

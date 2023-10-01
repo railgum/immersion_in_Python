@@ -8,7 +8,7 @@ import random
 from typing import Callable
 
 
-def deco(func):
+def deco(func: Callable) -> Callable:
     def wrapper(*args, **kwargs):
         a, b, *_ = args
         if a not in range(1, 101):
