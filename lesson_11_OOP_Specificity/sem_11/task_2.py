@@ -5,25 +5,25 @@
 # list-архивы также являются свойствами экземпляра
 
 class Archive:
-    _instance = None
+    _instance = []
 
     def __new__(cls, value: int, text: str):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-            cls._instance.list_arch = []
-        else:
-            cls._instance.list_arch.append(cls._instance)
-        return cls._instance
+        instance = super().__new__(cls)
+        instance.value = value
+        instance.text = text
+        instance.list_arch = cls._instance.copy()
+        cls._instance.append(instance)
+        return instance
 
-    def __init__(self, value: int, text: str):
-        self.value = value
-        self.text = text
+    # def __init__(self, value: int, text: str):
+    #     self.value = value
+    #     self.text = text
 
     def __str__(self):
         return f'{self.value} {self.text} | {self.list_arch}'
 
     def __repr__(self):
-        return f'{self.value} {self.text}'
+        return f'({self.value} {self.text})'
 
 
 a = Archive(5, 'что-то')
@@ -33,3 +33,4 @@ c = Archive(2, 'ну и ещё чо-нть')
 print(a)
 print(b)
 print(c)
+print(a)
