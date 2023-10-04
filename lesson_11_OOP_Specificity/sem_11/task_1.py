@@ -12,8 +12,12 @@ class MyStr(str):
         return instance
     def __init__(self, author, value):
         self.author = author
-        self.create_time = datetime.now()
+        self.create_time = datetime.now().strftime("%Y-%m-%d %H:%M")
         self.value = value
+    # def __str__(self):
+        # def __str__(self):
+        #     return (f'{self.value} (Автор: {self.author},'
+        #             f' Время создания: {self.create_time})')
 
 
 a = MyStr('rail', 'моя строка')
