@@ -7,7 +7,7 @@
 # сторона, считаем что у нас квадрат
 
 class Rectangle:
-    def __init__(self, side_a, side_b = None):
+    def __init__(self, side_a, side_b=None):
         self.side_a = side_a
         self.side_b = side_b if side_b else side_a
 
@@ -18,7 +18,7 @@ class Rectangle:
         return self.side_a * self.side_b
 
 
-r_1 = Rectangle(6,8)
+r_1 = Rectangle(6, 8)
 r_2 = Rectangle(9)
 print(r_1.perimetr())
 print(r_1.area())
