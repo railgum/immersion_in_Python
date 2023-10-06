@@ -17,7 +17,7 @@
 # 6. Представление матрицы в виде строки для создания нового объекта.
 #    Реализуйте метод __repr__, который возвращает строку,
 #    которую можно использовать для создания нового объекта класса Matrix.
-import copy
+import numbers
 
 
 class Matrix:
@@ -50,6 +50,8 @@ class Matrix:
                 return result
             else:
                 return f'Такие матрицы невозможно перемножить'
+        elif isinstance(other, numbers.Number):
+            return [[i * other for i in row] for row in self.data]
         raise TypeError
 
     def __eq__(self, other):
@@ -75,31 +77,24 @@ class Matrix:
 # Создаем матрицы
 matrix1 = Matrix(2, 3)
 matrix1.data = [[1, 2, 3], [4, 5, 6]]
-
-matrix2 = Matrix(2, 3)
-matrix2.data = [[7, 8, 9], [10, 11, 12]]
-
-# Выводим матрицы
-print(matrix1)
-
-print(matrix2)
-
-# Сравниваем матрицы
-print(matrix1 == matrix2)
-
-# Выполняем операцию сложения матриц
-matrix_sum = matrix1 + matrix2
-print(matrix_sum)
-
-# Выполняем операцию умножения матриц
-matrix3 = Matrix(3, 2)
-matrix3.data = [[1, 2], [3, 4], [5, 6]]
-
-matrix4 = Matrix(2, 2)
-matrix4.data = [[7, 8], [9, 10]]
-
-result = matrix3 * matrix4
-print(result)
+# matrix2 = Matrix(2, 3)
+print(matrix1 * 5)
+# matrix2.data = [[7, 8, 9], [10, 11, 12]]
+# # Выводим матрицы
+# print(matrix1)
+# print(matrix2)
+# # Сравниваем матрицы
+# print(matrix1 == matrix2)
+# # Выполняем операцию сложения матриц
+# matrix_sum = matrix1 + matrix2
+# print(matrix_sum)
+# # Выполняем операцию умножения матриц
+# matrix3 = Matrix(3, 2)
+# matrix3.data = [[1, 2], [3, 4], [5, 6]]
+# matrix4 = Matrix(2, 2)
+# matrix4.data = [[7, 8], [9, 10]]
+# result = matrix3 * matrix4
+# print(result)
 
 # эталон
 # class Matrix:
