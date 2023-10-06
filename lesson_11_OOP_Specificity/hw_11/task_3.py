@@ -94,3 +94,6 @@ print(rect1 <= rect2)
 
 print(repr(rect1))
 print(repr(rect2))
+
+# Эталонное ))) решение
+# 
