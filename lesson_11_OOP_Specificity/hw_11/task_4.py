@@ -25,19 +25,16 @@ class Matrix:
     def __init__(self, rows: int, cols: int):
         self.rows = rows if rows > 0 else 1
         self.cols = cols if cols > 0 else 1
-        self.matrix = [[0] * self.cols for _ in range(self.rows)]
-    def data(self, data):
-        self.matrix = copy.deepcopy(data)
-        return self.matrix
+        self.data = [[0] * cols for _ in range(rows)]
 
     def __add__(self, other):
         if isinstance(other, Matrix):
             if self.rows == other.rows and self.cols == other.cols:
-                matrix_result = [[0 for row in range(other.cols)] for col in range(self.rows)]
+                result = Matrix(self.rows, other.cols)
                 for row in range(self.rows):
                     for col in range(self.cols):
-                        matrix_result[row][col] += self.matrix[row][col] + other.matrix[row][col]
-                return matrix_result
+                        result.data[row][col] += self.data[row][col] + other.data[row][col]
+                return result
             else:
                 return f'Матрицы разных размеров'
         raise TypeError
@@ -45,51 +42,37 @@ class Matrix:
     def __mul__(self, other):
         if isinstance(other, Matrix):
             if self.cols == other.rows:
-                matrix_result = [[0 for row in range(other.cols)] for col in range(self.rows)]
+                result = Matrix(self.rows, other.cols)
                 for i in range(self.rows):
                     for j in range(other.cols):
                         for k in range(self.cols):
-                            matrix_result[i][j] += self.matrix[i][k] * other.matrix[k][j]
-                return matrix_result
+                            result.data[i][j] += self.data[i][k] * other.data[k][j]
+                return result
             else:
                 return f'Такие матрицы невозможно перемножить'
         raise TypeError
-
-    # def __mul__(self, other):
-    #     if isinstance(other, Matrix):
-    #         if self.cols == other.rows:
-    #             matrix_result = []
-    #             for i in range(self.rows):
-    #                 list_value = []
-    #                 for j in range(other.cols):
-    #                     elem, temp_res = 0, 0
-    #                     for k in range(self.cols):
-    #                         temp_res = self.matrix[i][k] * other.matrix[k][j]
-    #                         elem += temp_res
-    #                     list_value.append(elem)
-    #                 matrix_result.append(list_value)
-    #             return matrix_result
-    #         else:
-    #             return f'Такие матрицы невозможно перемножить'
-    #     raise TypeError
 
     def __eq__(self, other):
         if isinstance(other, Matrix):
             if self.rows == other.rows and self.cols == other.cols:
                 return all([
-                    self.matrix[i][j] == other.matrix[i][j] for j in range(self.cols) for i
+                    self.data[i][j] == other.data[i][j] for j in range(self.cols) for i
                     in range(self.rows)])
             else:
                 return False
         raise TypeError
 
     def __str__(self):
-        return '\n'.join(' '.join(map(str, row)) for row in self.matrix)
+        # return '\n'.join(' '.join(map(str, row)) for row in self.data)
+
+        return '\n'.join(
+            [' '.join([str(self.data[i][j]) for j in range(self.cols)]) for i in range(self.rows)])
 
     def __repr__(self):
-        return f'Matrix({self.matrix})'
+        return f'Matrix({self.rows}, {self.cols})'
 
 
+# Создаем матрицы
 matrix1 = Matrix(2, 3)
 matrix1.data = [[1, 2, 3], [4, 5, 6]]
 
@@ -100,3 +83,116 @@ matrix2.data = [[7, 8, 9], [10, 11, 12]]
 print(matrix1)
 
 print(matrix2)
+
+# Сравниваем матрицы
+print(matrix1 == matrix2)
+
+# Выполняем операцию сложения матриц
+matrix_sum = matrix1 + matrix2
+print(matrix_sum)
+
+# Выполняем операцию умножения матриц
+matrix3 = Matrix(3, 2)
+matrix3.data = [[1, 2], [3, 4], [5, 6]]
+
+matrix4 = Matrix(2, 2)
+matrix4.data = [[7, 8], [9, 10]]
+
+result = matrix3 * matrix4
+print(result)
+
+# эталон
+# class Matrix:
+#     """
+#     Класс, представляющий матрицу.
+#
+#     Атрибуты:
+#     - rows (int): количество строк в матрице
+#     - cols (int): количество столбцов в матрице
+#     - data (list): двумерный список, содержащий элементы матрицы
+#
+#     Методы:
+#     - __str__(): возвращает строковое представление матрицы
+#     - __repr__(): возвращает строковое представление матрицы, которое может быть использовано для создания нового объекта
+#     - __eq__(other): определяет операцию "равно" для двух матриц
+#     - __add__(other): определяет операцию сложения двух матриц
+#     - __mul__(other): определяет операцию умножения двух матриц
+#     """
+#
+#     def __init__(self, rows, cols):
+#         self.rows = rows
+#         self.cols = cols
+#         self.data = [[0 for j in range(cols)] for i in range(rows)]
+#
+#     def __str__(self):
+#         """
+#         Возвращает строковое представление матрицы.
+#
+#         Возвращает:
+#         - str: строковое представление матрицы
+#         """
+#         return '\n'.join([' '.join([str(self.data[i][j]) for j in range(self.cols)]) for i in range(self.rows)])
+#
+#     def __repr__(self):
+#         """
+#         Возвращает строковое представление матрицы, которое может быть использовано для создания нового объекта.
+#
+#         Возвращает:
+#         - str: строковое представление матрицы
+#         """
+#         return f"Matrix({self.rows}, {self.cols})"
+#
+#     def __eq__(self, other):
+#         """
+#         Определяет операцию "равно" для двух матриц.
+#
+#         Аргументы:
+#         - other (Matrix): вторая матрица
+#
+#         Возвращает:
+#         - bool: True, если матрицы равны, иначе False
+#         """
+#         if self.rows != other.rows or self.cols != other.cols:
+#             return False
+#         for i in range(self.rows):
+#             for j in range(self.cols):
+#                 if self.data[i][j] != other.data[i][j]:
+#                     return False
+#         return True
+#
+#     def __add__(self, other):
+#         """
+#         Определяет операцию сложения двух матриц.
+#
+#         Аргументы:
+#         - other (Matrix): вторая матрица
+#
+#         Возвращает:
+#         - Matrix: новая матрица, полученная путем сложения двух исходных матриц
+#         """
+#         if self.rows != other.rows or self.cols != other.cols:
+#             raise ValueError("Матрицы должны иметь одинаковые размеры")
+#         result = Matrix(self.rows, self.cols)
+#         for i in range(self.rows):
+#             for j in range(self.cols):
+#                 result.data[i][j] = self.data[i][j] + other.data[i][j]
+#         return result
+#
+#     def __mul__(self, other):
+#         """
+#         Определяет операцию умножения двух матриц.
+#
+#         Аргументы:
+#         - other (Matrix): вторая матрица
+#
+#         Возвращает:
+#         - Matrix: новая матрица, полученная путем умножения двух исходных матриц
+#         """
+#         if self.cols != other.rows:
+#             raise ValueError("Количество столбцов первой матрицы должно быть равно количеству строк второй матрицы")
+#         result = Matrix(self.rows, other.cols)
+#         for i in range(self.rows):
+#             for j in range(other.cols):
+#                 for k in range(self.cols):
+#                     result.data[i][j] += self.data[i][k] * other.data[k][j]
+#         return result
