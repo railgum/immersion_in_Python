@@ -5,3 +5,12 @@
 # возвращать дефолтное значение.
 # Реализуйте работу через обработку исключений.
 
+def func(some_dict: dict, key, default=None):
+    try:
+        return some_dict[key]
+    except KeyError:
+        return default
+
+if __name__ == '__main__':
+    d = {}
+
