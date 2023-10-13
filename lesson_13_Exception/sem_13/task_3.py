@@ -1,8 +1,8 @@
-# Создайте класс с базовым исключением и дочерние классыисключения:
+# Создайте класс с базовым исключением и дочерние классы-исключения:
 # ○ ошибка уровня,
 # ○ ошибка доступа.
 
-class MyExeption(Exception):
+class MyException(Exception):
     def __init__(self, msg: str):
         self.message = msg
 
@@ -10,6 +10,15 @@ class MyExeption(Exception):
         return f'Моё исключение: {self.message}'
 
 
-# class LevelError()
+class LevelError(MyException):
+    def __init__(self, msg: str):
+        super().__init__(msg)
 
 
+class AccessError(MyException):
+    def __init__(self, msg: str):
+        super().__init__(msg)
+
+
+# raise LevelError('Уровень доступа меньше 7')
+raise AccessError('Ошибка доступа')

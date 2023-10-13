@@ -5,12 +5,11 @@
 # возвращать дефолтное значение.
 # Реализуйте работу через обработку исключений.
 
-def func(some_dict: dict, key, default=None):
+def func(some_dict: dict, key, default='Не найдено'):
     try:
         return some_dict[key]
     except KeyError:
         return default
 
-if __name__ == '__main__':
-    d = {}
-
+d = {1: 'one'}
+print(func(d, 2, 'Nein'))
