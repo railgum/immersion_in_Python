@@ -33,7 +33,7 @@ class Rectangle:
 rect_1 = Rectangle(8, 10)
 rect_2 = Rectangle(9, 14)
 
-print(rect_1 + rect_2)
+# print(rect_1 + rect_2)
 # print(rect_2 - rect_1)
-print(rect_1.perimetr())
-print(rect_2.perimetr())
+# print(rect_1.perimetr())
+# print(rect_2.perimetr())
