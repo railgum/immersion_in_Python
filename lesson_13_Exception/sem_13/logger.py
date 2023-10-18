@@ -11,7 +11,7 @@
 # меньше, чем ваш уровень, вызывайте исключение уровня
 # доступа.
 
-from task_4 import *
+from user import *
 
 
 class Logan:
