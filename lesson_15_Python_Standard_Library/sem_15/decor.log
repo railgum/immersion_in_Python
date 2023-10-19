@@ -1,0 +1,3 @@
+result: Один_Два, args: Один,Два
+result: Где-то_Что-то, kwargs: b = Что-то, a = Где-то
+result: Когда_Почему, args: Когда, kwargs: b = Почему
