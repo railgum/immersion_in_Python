@@ -34,4 +34,4 @@ def scan_dir(path: str = os.getcwd()):
         csv_writer = csv.writer(csv_file, dialect='excel', delimiter='>')
         csv_writer.writerows(file_list)
         pickle.dump(file_dict, pickle_file)
-scan_dir('../../lesson_8_Serialize')
+# scan_dir('../../lesson_8_Serialize')

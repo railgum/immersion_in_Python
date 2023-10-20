@@ -1,0 +1,32 @@
+{
+    "X:\\Geek\\Developer\\Backend_for_Web\\Immersion_in_Python\\immersion_in_Python\\lesson_8_Serialize\\hw_8\\csv_file.csv": {
+        "name": "csv_file.csv",
+        "path": "X:\\Geek\\Developer\\Backend_for_Web\\Immersion_in_Python\\immersion_in_Python\\lesson_8_Serialize\\hw_8",
+        "type": "FILE",
+        "size": 159
+    },
+    "X:\\Geek\\Developer\\Backend_for_Web\\Immersion_in_Python\\immersion_in_Python\\lesson_8_Serialize\\hw_8\\json_file.json": {
+        "name": "json_file.json",
+        "path": "X:\\Geek\\Developer\\Backend_for_Web\\Immersion_in_Python\\immersion_in_Python\\lesson_8_Serialize\\hw_8",
+        "type": "FILE",
+        "size": 161
+    },
+    "X:\\Geek\\Developer\\Backend_for_Web\\Immersion_in_Python\\immersion_in_Python\\lesson_8_Serialize\\hw_8\\razbor_link.txt": {
+        "name": "razbor_link.txt",
+        "path": "X:\\Geek\\Developer\\Backend_for_Web\\Immersion_in_Python\\immersion_in_Python\\lesson_8_Serialize\\hw_8",
+        "type": "FILE",
+        "size": 162
+    },
+    "X:\\Geek\\Developer\\Backend_for_Web\\Immersion_in_Python\\immersion_in_Python\\lesson_8_Serialize\\hw_8\\scan_dir_from_Stone.py": {
+        "name": "scan_dir_from_Stone.py",
+        "path": "X:\\Geek\\Developer\\Backend_for_Web\\Immersion_in_Python\\immersion_in_Python\\lesson_8_Serialize\\hw_8",
+        "type": "FILE",
+        "size": 169
+    },
+    "X:\\Geek\\Developer\\Backend_for_Web\\Immersion_in_Python\\immersion_in_Python\\lesson_8_Serialize\\hw_8\\task_1.py": {
+        "name": "task_1.py",
+        "path": "X:\\Geek\\Developer\\Backend_for_Web\\Immersion_in_Python\\immersion_in_Python\\lesson_8_Serialize\\hw_8",
+        "type": "FILE",
+        "size": 156
+    }
+}
