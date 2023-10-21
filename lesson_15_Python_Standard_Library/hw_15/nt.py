@@ -37,4 +37,4 @@ def dir_walker(full_path: str = os.getcwd()):
         print(i)
 
 if __name__ == '__main__':
-    dir_walker('X:\Geek\Developer\\1_block\\5_БД\seminar1')
+    dir_walker('insert_path')
