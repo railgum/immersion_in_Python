@@ -1,0 +1,37 @@
+Name: bin -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1 -|- Is directory: True
+Name: obj -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1 -|- Is directory: True
+Name: db -|- Extension: csv -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1
+Name: Program -|- Extension: cs -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1
+Name: seminar1 -|- Extension: csproj -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1
+Name: structDB -|- Extension: drawio -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1
+Name: Debug -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\bin -|- Is directory: True
+Name: net6.0 -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\bin\Debug -|- Is directory: True
+Name: seminar1 -|- Extension: deps -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\bin\Debug\net6.0
+Name: seminar1 -|- Extension: dll -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\bin\Debug\net6.0
+Name: seminar1 -|- Extension: exe -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\bin\Debug\net6.0
+Name: seminar1 -|- Extension: pdb -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\bin\Debug\net6.0
+Name: seminar1 -|- Extension: runtimeconfig -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\bin\Debug\net6.0
+Name: Debug -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj -|- Is directory: True
+Name: project -|- Extension: assets -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj
+Name: project -|- Extension: nuget -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj
+Name: seminar1 -|- Extension: csproj -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj
+Name: seminar1 -|- Extension: csproj -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj
+Name: seminar1 -|- Extension: csproj -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj
+Name: net6.0 -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug -|- Is directory: True
+Name: ref -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0 -|- Is directory: True
+Name: refint -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0 -|- Is directory: True
+Name:  -|- Extension: NETCoreApp,Version=v6 -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: apphost -|- Extension: exe -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: AssemblyInfo -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: AssemblyInfoInputs -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: assets -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: csproj -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: csproj -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: csproj -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: dll -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: GeneratedMSBuildEditorConfig -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: genruntimeconfig -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: GlobalUsings -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: pdb -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0
+Name: seminar1 -|- Extension: dll -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0\ref
+Name: seminar1 -|- Extension: dll -|- Parent: X:\Geek\Developer\1_block\5_БД\seminar1\obj\Debug\net6.0\refint

@@ -11,26 +11,26 @@
 import os
 import logging
 from collections import namedtuple
-from pprint import pprint
 
+MY_FORMAT = '{msg}'
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename='scan_dir_NT.log', filemode='w', encoding='utf-8',
+                    level=logging.INFO, style='{', format=MY_FORMAT)
 
 def dir_walker(full_path: str = os.getcwd()):
-    result = {}
     for path, dir_list, file_list in os.walk(full_path):
         for cur_dir in dir_list:
-            result[os.path.join(path, cur_dir)] = {'name': cur_dir,
-                                                   'parent_path': path,
-                                                   'type': 'DIR'
-                                                   }
+            Dir = namedtuple('Dir', 'name parent_path is_dir')
+            this_dir = Dir(cur_dir, path, True)
+            logger.info(
+                msg=f'Name: {this_dir.name} -|- Parent: {this_dir.parent_path} -|- Is directory: {this_dir.is_dir}')
         for cur_file in file_list:
-            result[os.path.join(path, cur_file)] = {'name': cur_file.split('.')[0],
-                                                    'ext': cur_file.split('.')[1],
-                                                    'parent_path': path,
-                                                    'type': 'FILE'
-                                                    }
-    return result
+            File = namedtuple('File', 'name extension parent_path')
+            this_file = File(cur_file.split('.')[0], cur_file.split('.')[1], path)
+            logger.info(
+                msg=f'Name: {this_file.name} -|- Extension: {this_file.extension} -|- Parent: {this_file.parent_path}')
 
 
-# ScanDir = namedtuple('ScanDir', dir_walker('X:\Geek\Developer\\1_block\\5_БД\seminar1'))
 
-print(dir_walker('X:\Geek\Developer\\1_block\\5_БД\seminar1'))
+if __name__ == '__main__':
+    dir_walker('X:\Geek\Developer\\1_block\\5_БД\seminar1')
