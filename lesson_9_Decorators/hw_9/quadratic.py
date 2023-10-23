@@ -1,3 +1,13 @@
+# Напишите следующие функции:
+# 1. Нахождение корней квадратного уравнения
+# 2. Генерация csv файла с тремя случайными числами
+#    в каждой строке. 100-1000 строк.
+# 3. Декоратор, запускающий функцию нахождения корней квадратного
+#    уравнения с каждой тройкой чисел из csv файла.
+# 4. Декоратор, сохраняющий переданные параметры и
+#    результаты работы функции в json файл.
+
+
 import csv
 import json
 import math
@@ -7,15 +17,15 @@ from functools import wraps
 
 NUM_STR_MIN = 10
 NUM_STR_MAX = 25
+NUMBER_LINES = 100
 
 
-def csv_gen(a: int = rnd.randint(NUM_STR_MIN, NUM_STR_MAX)):
+def csv_gen(a: int = NUMBER_LINES):
     data = []
     for _ in range(a):
-        data.append(
-            f'{rnd.randint(-100, 100)},{rnd.randint(-100, 100)},{rnd.randint(-100, 100)}')
-    with open('random_files_3.csv', 'w', newline='') as file:
-        csv_writer = csv.writer(file, dialect='excel', delimiter=' ', quoting=csv.QUOTE_MINIMAL)
+        data.append((rnd.randint(-100, 100), rnd.randint(-100, 100), rnd.randint(-100, 100)))
+    with open('random_files_3.csv', 'w') as file:
+        csv_writer = csv.writer(file, dialect='excel', delimiter=';')
         csv_writer.writerows(data)
 
 
@@ -73,4 +83,4 @@ def roots_eq(a: int, b: int, c: int):
 
 if __name__ == '__main__':
     csv_gen()
-    roots_eq()
+    # roots_eq()
