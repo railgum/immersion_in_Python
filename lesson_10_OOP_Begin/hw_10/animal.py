@@ -51,7 +51,7 @@ class Animal:
         return self.spec
 
 
-class Dog(Animal):
+class Mammal(Animal):
     def __init__(self, name, age, spec):
         super().__init__(name, age)
         self.spec = spec

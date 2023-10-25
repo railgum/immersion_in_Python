@@ -1,3 +1,13 @@
+# Создайте класс-фабрику.
+# ○ Класс принимает тип животного (название одного из созданных классов)
+#    и параметры для этого типа.
+# ○ Внутри класса создайте экземпляр на основе переданного типа и
+#   верните его из класса-фабрики.
+# ○ Возьмите 1-3 любые задачи из прошлых семинаров (например сериализация
+#   данных), которые вы уже решали. Превратите функции в методы класса, а
+#   параметры в свойства. Задачи должны решаться через вызов методов
+#   экземпляра.
+
 from animal import *
 
 class AnimalFactory:
@@ -6,7 +16,7 @@ class AnimalFactory:
         return example(*args, **kwargs)
 
     def _get_class_type(self, class_name):
-        dict_classes = {'dog': Dog, 'bird': Bird, 'fish': Fish}
+        dict_classes = {'dog': Mammal, 'bird': Bird, 'fish': Fish}
         return dict_classes[class_name.lower()]
 
 f1 = AnimalFactory()
