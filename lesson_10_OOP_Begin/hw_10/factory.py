@@ -20,7 +20,6 @@ class AnimalFactory:
         return dict_classes[class_name.lower()]
 
 f1 = AnimalFactory()
-dog_fact = f1.make_instance('dog', 'Тузик', 5, 'Тяв!')
-print(dog_fact.name)
-print(dog_fact.spec)
+dog_fact = f1.make_instance('dog', name='Тузик', age=5, breed='Боксер', spec='Тяв!')
 
+print(dog_fact.get_info())

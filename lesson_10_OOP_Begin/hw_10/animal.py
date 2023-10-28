@@ -42,7 +42,7 @@
 # Убедитесь, что в созданные ранее классы внесены правки.
 
 class Animal:
-    def __init__(self, name, age):
+    def __init__(self, name, age, **_):
         self.name = name
         self.age = age
         self.spec = None
@@ -50,20 +50,43 @@ class Animal:
     def get_spec(self):
         return self.spec
 
+    def get_info(self) -> str:
+        return (f'{"Type:":8}{type(self).__name__}'
+                f'\n{"Name:":8}{self.name}'
+                f'\n{"Age:":8}{self.age} years')
+
 
 class Mammal(Animal):
-    def __init__(self, name, age, spec):
+    def __init__(self, name, age, breed, spec, **_):
         super().__init__(name, age)
         self.spec = spec
+        self.breed = breed
+
+    def get_info(self) -> str:
+        return (super().get_info() +
+                f'\n{"Breed:":8}{self.breed}'
+                f'\n{"Spec:":8}{self.spec}')
 
 
 class Bird(Animal):
-    def __init__(self, name, age, spec):
+    def __init__(self, name, age, breed, spec, **_):
         super().__init__(name, age)
+        self.breed = breed
         self.spec = spec
+
+    def get_info(self) -> str:
+        return (super().get_info() +
+                f'\n{"Breed:":8}{self.breed}'
+                f'\n{"Spec:":8}{self.spec}')
 
 
 class Fish(Animal):
-    def __init__(self, name, age, spec):
+    def __init__(self, name, age, kind, spec, **_):
         super().__init__(name, age)
+        self.kind = kind
         self.spec = spec
+
+    def get_info(self) -> str:
+        return (super().get_info() +
+                f'\n{"Kind:":8}{self.kind}'
+                f'\n{"Spec:":8}{self.spec}')
