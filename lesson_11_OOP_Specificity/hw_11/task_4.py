@@ -75,10 +75,14 @@ class Matrix:
 
 
 # Создаем матрицы
-matrix1 = Matrix(2, 3)
-matrix1.data = [[1, 2, 3], [4, 5, 6]]
+# matrix1 = Matrix(2, 3)
+# matrix1.data = [[1, 2, 3], [4, 5, 6]]
+# print(list(map(len, matrix1)))
+
+matrix2 = [[4, 8], [3,3, 2], [4]]
+print(set(map(len, matrix2)))
 # matrix2 = Matrix(2, 3)
-print(matrix1 * 5)
+# print(matrix1 * 5)
 # matrix2.data = [[7, 8, 9], [10, 11, 12]]
 # # Выводим матрицы
 # print(matrix1)
