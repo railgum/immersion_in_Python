@@ -57,8 +57,6 @@ def removal(amount, count_cut):
                     amount = (amount - withdrawal) + withdrawal * ACCRUAL
                     count_cut = 0
                 else:
-
-
                     count_cut += 1
                 return amount, count_cut
             else:
@@ -68,14 +66,13 @@ def removal(amount, count_cut):
             print('Извините, такой суммы на счете нет')
             continue
     print('Извините, что-то пошло не по плану :(')
-    return amount, count_refill
+    return amount, count_cut
     pass
 
 
 def show(amount):
     print(f'На вашем счете: {amount} у.е.')
     return amount
-
 
 def menu():
     os.system("cls")

@@ -61,7 +61,7 @@ class Matrix:
             new_matrix = [[0] * other.columns for _ in range(self.rows)]
             for i in range(self.rows):
                 for j in range(other.columns):
-                    for k in range(other.rows):
+                    for k in range(other.columns):
                         new_matrix[i][j] += self.matrix[i][k] * other.matrix[k][j]
             return Matrix(matrix=new_matrix)
         elif isinstance(other, int | float):
@@ -84,11 +84,11 @@ class Matrix:
 
 a = Matrix()
 b = Matrix(4, 3)
+print(b)
 c = Matrix(matrix=[[4, 5, 1], [3, 3, 2], [4, 8, 2]])
 d = Matrix(matrix=[[4, 5, 1], [3, 3, 2], [4, 8, 2]])
 
 print(c == d)
 print(c is d)
-    # print(a)
-    # print(b)
-    # print(c)
+print(b * c)
+print(c * 5)
