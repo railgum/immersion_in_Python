@@ -1,10 +1,8 @@
 import os
-from operations import Operation
 
 class Menu:
-    def __init__(self, tax, accrual, wealth_tax):
-        self.Operation = Operation(tax=tax, accrual=accrual, wealth_tax=wealth_tax)
-
+    def __init__(self, count_incorrect_answer, ):
+        self.incorrect_answer = count_incorrect_answer
     def menu(self):
         os.system("cls")
         menu = ('Добро пожаловать в программу "Банкомат"\n\n'
@@ -14,21 +12,19 @@ class Menu:
                 '3 - Показать баланс\n'
                 '0 - Выход')
         print(menu)
-        # incorrect_answer = 3
-        # amount = 0
-        # count_refill = 0
-        # count_cut = 0
-        while incorrect_answer > 0:
+        amount = 0
+        count_refill = 0
+        count_cut = 0
+        while self.incorrect_answer > 0:
             answer = input('Введите номер действия:>> ')
             if not answer.isdigit():
                 print('Нужно ввести число от 1 до 3')
-                incorrect_answer -= 1
+                self.incorrect_answer -= 1
                 continue
             else:
                 if answer == '1':
                     os.system("cls")
-                    # amount, count_refill = addition(amount, count_refill)
-                    self.Operation.add()
+                    amount, count_refill = addition(amount, count_refill)
                     show(amount)
                     print(menu)
                 if answer == '2':

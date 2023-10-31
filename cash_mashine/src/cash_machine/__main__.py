@@ -9,6 +9,11 @@
 # операцией, даже ошибочной
 # ✔ Любое действие выводит сумму денег
 
+import os
+from operations import Operation
+from menu import Menu
+
+
 DIVIDER = 50
 TAKING_OFF = 0.015
 MIN_WITHDRAWAL = 30
@@ -16,18 +21,11 @@ MAX_WITHDRAWAL = 600
 ACCRUAL = 0.03
 TAX = 0.1
 WEALTH_TAX = 5_000_000
+COUNT_INCORRECT_ANSWER = 3
 
-
-def check_multiplicity(monee):
-    return monee % DIVIDER == 0
-
-
-def show(amount):
-    print(f'На вашем счете: {amount} у.е.')
-    return amount
 
 
 if __name__ == '__main__':
-    from menu import Menu
+    cm = Operation(MIN_WITHDRAWAL,...)
+    menu = Menu(COUNT_INCORRECT_ANSWER)
 
-    start_cash_mashine = Menu(TAX, ACCRUAL, WEALTH_TAX)
