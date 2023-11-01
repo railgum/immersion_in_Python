@@ -1,8 +1,9 @@
 import os
 
 class Menu:
-    def __init__(self, count_incorrect_answer, ):
+    def __init__(self, count_incorrect_answer, cm):
         self.incorrect_answer = count_incorrect_answer
+        self.cash_machine = cm
     def menu(self):
         os.system("cls")
         menu = ('Добро пожаловать в программу "Банкомат"\n\n'
@@ -12,9 +13,6 @@ class Menu:
                 '3 - Показать баланс\n'
                 '0 - Выход')
         print(menu)
-        amount = 0
-        count_refill = 0
-        count_cut = 0
         while self.incorrect_answer > 0:
             answer = input('Введите номер действия:>> ')
             if not answer.isdigit():
@@ -24,17 +22,18 @@ class Menu:
             else:
                 if answer == '1':
                     os.system("cls")
-                    amount, count_refill = addition(amount, count_refill)
-                    show(amount)
+                    self.cash_machine.addition
+                    # show(amount)
                     print(menu)
                 if answer == '2':
                     os.system("cls")
-                    amount, count_cut = removal(amount, count_cut)
-                    show(amount)
+                    # amount, count_cut = removal(amount, count_cut)
+                    # show(amount)
+                    self.cash_machine()
                     print(menu)
                 if answer == '3':
                     os.system("cls")
-                    show(amount)
+                    # show(amount)
                     print(menu)
                 if answer == '0':
                     exit(0)
