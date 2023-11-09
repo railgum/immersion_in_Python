@@ -1,3 +1,4 @@
+
 class Operation:
     COUNT_INCORRECT_ANSWER = 3
 
@@ -14,102 +15,57 @@ class Operation:
         self.wealth_tax = wealth_tax
         self.divider = divider
 
-    def addition(self):
-        self.result_message = ''
-        incorrect_answer = 0
-        while incorrect_answer < self.COUNT_INCORRECT_ANSWER:
-            try:
-                if self.result_operation > self.wealth_tax:
-                    self.result_message = 'Вычтен налог на богатство'
-                    self.result_operation -= self.result_operation * self.tax
-                    print(self.show())
-                    self.result_message = ''
-                payment = int(input('Введите сумму взноса: '))
-                if self.check_multiplicity(payment, self.divider):
-                    self.count_operation += 1
-                    if self.count_operation % 3 == 0:
-                        self.result_operation += payment + payment * self.accrual
-                        self.result_message = f'Вы получили дополнительно {payment * self.accrual}'
-                        print(self.show())
-                        self.result_message = ''
-                        break
-                    else:
-                        self.result_operation += payment
-                        print(self.show())
-                        self.result_message = ''
-                        break
-                else:
-                    self.result_message = 'Сумма взноса должна быть кратна 50!'
-                    print(self.show())
-                    self.result_message = ''
-                    incorrect_answer += 1
-            except ValueError as e:
-                self.result_message = f'Ошибка ввода: {e}'
-                print(self.show())
-                self.result_message = ''
-                incorrect_answer += 1
-        else:
-            self.result_message = 'Вы делаете что-то не так. Возврат в меню'
-            print(self.show())
-            self.result_message = ''
+    def transaction(self, amount: int, flag: bool):
 
-    def removal(self):
-        self.result_message = ''
-        incorrect_answer = 0
-        while incorrect_answer < self.COUNT_INCORRECT_ANSWER:
-            try:
-                if self.result_operation > self.wealth_tax:
-                    self.result_message = 'Вычтен налог на богатство'
-                    self.result_operation -= self.result_operation * self.tax
-                    print(self.show())
-                    self.result_message = ''
-                withdrawal = int(input('Введите сумму снятия: '))
-                if self.result_operation > withdrawal:
-                    if self.check_multiplicity(withdrawal, self.divider):
-                        self.count_operation += 1
-                        if self.count_operation % 3 == 0:
-                            self.result_operation = ((self.result_operation - withdrawal)
-                                                     + (withdrawal * self.accrual))
-                            self.result_message = (f'Вы получили дополнительно: '
-                                                   f'{withdrawal * self.accrual}')
-                            print(self.show())
-                            self.result_message = ''
-                            break
-                        else:
-                            self.result_operation -= withdrawal
-                            print(self.show())
-                            self.result_message = ''
-                            break
+        """Функция исполнения операции"""
+        try:
+            if self.check_wealth(self.result_operation, self.wealth_tax):
+                self.result_operation -= self.result_operation * self.tax
+                print('Вычтен налог на богатство!')
+            if self.check_multiplicity(amount, self.divider):
+                self.count_operation += 1
+                if flag:
+                    if self.count_operation % 3 == 0:
+                        self.result_operation += (amount + amount * self.accrual)
+                        return 'accrual'
                     else:
-                        self.result_message = 'Сумма взноса должна быть кратна 50!'
-                        print(self.show())
-                        self.result_message = ''
-                        incorrect_answer -= 1
+                        self.result_operation += amount
+                        return 'successfully'
                 else:
-                    self.result_message = (f'Ошибка, ваш баланс: {self.result_operation},'
-                                           f' вы запросили: {withdrawal}')
-                    print(self.show())
-                    self.result_message = ''
-                    break
-            except ValueError as e:
-                self.result_message = f'Ошибка ввода: {e}'
-                print(self.show())
-                self.result_message = ''
-                incorrect_answer += 1
+                    if self.count_operation % 3 == 0:
+                        self.result_operation = (self.result_operation - (
+                                    amount + self._withdrawal(amount))) + (amount * self.accrual)
+                        return 'accrual'
+                    else:
+                        self.result_operation -= (amount + self._withdrawal(amount))
+                        return 'successfully'
+            else:
+                return 'error_divider'
+        except ValueError as e:
+            return 'error_enter'
+
+    @staticmethod
+    def check_wealth(value, tax):
+        """Функция проверки на богатство"""
+        return value >= tax
+
+    def _withdrawal(self, withdrawal):
+        """Вычисление суммы налога при снятии"""
+        return (((withdrawal * self.taking_off)
+                 if self.min_withdrawal <= (withdrawal * self.taking_off) else self.min_withdrawal)
+                if (withdrawal * self.taking_off) < self.max_withdrawal else self.max_withdrawal)
+
+    def show(self):
+        """Функция вывода баланса"""
+        if self.result_message:
+            print(f'На вашем счете: {self.result_operation} у.е.\n'
+                  f'{self.result_message}\n'
+                  f'Номер операции: {self.count_operation}\n')
         else:
-            self.result_message = 'Вы делаете что-то не так. Возврат в меню'
-            print(self.show())
-            self.result_message = ''
+            print(f'На вашем счете: {self.result_operation} у.е.\n'
+                  f'Номер операции: {self.count_operation}\n')
 
     @staticmethod
     def check_multiplicity(value, divider):
+        """Функция проверки кратности банкнот"""
         return value % divider == 0
-
-    def show(self):
-        if self.result_message:
-            return (f'На вашем счете: {self.result_operation} у.е.\n'
-                    f'{self.result_message}\n'
-                    f'Номер операции: {self.count_operation}\n')
-        else:
-            return (f'На вашем счете: {self.result_operation} у.е.\n'
-                    f'Номер операции: {self.count_operation}\n')
