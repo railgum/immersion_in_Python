@@ -103,6 +103,6 @@ def menu(cm):
     window.mainloop()
 
 
-if __name__ == '__main__':
-    CM = Operation(MIN_WITHDRAWAL, MAX_WITHDRAWAL, TAX, ACCRUAL, TAKING_OFF, WEALTH_TAX, DIVIDER)
-    menu(CM)
+# if __name__ == '__main__':
+#     CM = Operation(MIN_WITHDRAWAL, MAX_WITHDRAWAL, TAX, ACCRUAL, TAKING_OFF, WEALTH_TAX, DIVIDER)
+#     menu(CM)

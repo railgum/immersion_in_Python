@@ -8,9 +8,9 @@
 # ✔ При превышении суммы в 5 млн, вычитать налог на богатство 10% перед каждой
 # операцией, даже ошибочной
 # ✔ Любое действие выводит сумму денег
-
-from operations import Operation
-from menu import Menu
+import cash_machine_gui
+from operations_gui import Operation
+# from menu import Menu
 
 DIVIDER = 50  # Минимальная банкнота
 TAKING_OFF = 0.015  # Процент за снятие
@@ -23,5 +23,5 @@ COUNT_INCORRECT_ANSWER = 3  # Количество неправильно вве
 
 if __name__ == '__main__':
     CM = Operation(MIN_WITHDRAWAL, MAX_WITHDRAWAL, TAX, ACCRUAL, TAKING_OFF, WEALTH_TAX, DIVIDER)
-    print_menu = Menu(CM, COUNT_INCORRECT_ANSWER)
-    print_menu.menu()
+    # print_menu = Menu(CM, COUNT_INCORRECT_ANSWER)
+    cash_machine_gui.menu(CM)
