@@ -20,6 +20,13 @@ ACCRUAL = 0.03  # Начисление за операции
 TAX = 0.1  # Процент налога на богатство
 WEALTH_TAX = 5_000_000  # Сумма на счете, определяющая богатство
 COUNT_INCORRECT_ANSWER = 3  # Количество неправильно введенных данных
+# Словарь для вывода сообщений о результате операции
+MESSAGE_CODE_DICT = {'error_enter': 'Ошибка ввода',
+                     'not_integer': 'Это не число',
+                     'successfully': 'Операция выполнена успешно',
+                     'error_divider': 'Число не кратно 50',
+                     'accrual': 'Вам бонус!',
+                     'wealth': 'Вычтен налог на богатство'}
 
 if __name__ == '__main__':
     CM = Operation(MIN_WITHDRAWAL, MAX_WITHDRAWAL, TAX, ACCRUAL, TAKING_OFF, WEALTH_TAX, DIVIDER)
